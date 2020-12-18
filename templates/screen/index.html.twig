@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Message</h1>
+
+    <ul id="messages">
+    </ul>
+
+    <template id="message_template" style="display: none">
+        <li>
+            <span>__nom__</span>
+            <span>__message__</span>
+        </li>
+    </template>
+
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <script>
+
+        $(function() {
+
+            let messages_ul = $("#messages");
+            let message_template = $("#message_template").html();
+
+
+            /**
+             * Suppression auto des messages
+             */
+            setInterval(function() {
+                messages_ul.children(":first").remove();
+            }, 10000);
+
+
+            /**
+             * SSE for updates from server
+             */
+
+            if (typeof(EventSource) !== "undefined") {
+                let es = new EventSource("{{ path('screen_sse') }}");
+
+                let listener = function (event) {
+                    if (typeof event.data !== 'undefined') {
+                        //console.log(event);
+                        let data = JSON.parse(event.data);
+                        handleSSE(data);
+                    }
+                };
+
+                es.addEventListener("open", listener);
+                es.addEventListener("message", listener);
+                es.addEventListener("error", listener);
+            }
+            else {
+                alert("Whoops! Your browser doesn't receive server-sent events.");
+            }
+
+
+            function handleSSE(data) {
+                //console.log("data", data);
+
+                $.each(data, function(idx, message) {
+                    //console.log("message", message);
+                    messages_ul.append(message_template
+                        .replace("__nom__", message.nom)
+                        .replace("__message__", message.message)
+                    );
+                });
+            }
+
+        });
+
+
+    </script>
+{% endblock %}

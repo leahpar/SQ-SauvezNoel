@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Ho Ho Ho !</h1>
+
+    <div>{{ message.message }}</div>
+    <div>{{ message.nom }}</div>
+    <div>{{ message.date|date("d/m H:i") }}</div>
+</div>
+
+<!--
+<a href={{ path('user_index') }}"> Nouvelle lettre </a>
+-->
+
+{% endblock %}
+

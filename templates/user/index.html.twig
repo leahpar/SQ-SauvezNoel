@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Sauvez Noël !</h1>
+
+    <form method="post">
+        <label>Nom prénom (sera affiché à l'écran)</label>
+        <br>
+        <input type="text" name="message[nom]" required>
+        <br>
+        <label>Lettre au Père Noël</label>
+        <br>
+        <input type="text" name="message[message]" required>
+        <br>
+        {{ form_row(form._token) }}
+        <button>Envoyer ma lettre</button>
+
+    </form>
+
+
+
+
+</div>
+
+{% endblock %}
