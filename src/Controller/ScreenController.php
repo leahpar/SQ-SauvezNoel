@@ -45,9 +45,19 @@ class ScreenController extends AbstractController
 
         // Dernier message
         $message = $em->getRepository(Message::class)->lastMessage();
-        dump($message);
-
         $current_uc = floatval($_GET["lastMessageId"] ?? $message->id);
+
+        $count = $em->getRepository(Message::class)->count([]);
+
+        // Infos initiales
+        echo "id: " . $lastEventId++ . "\n";
+        echo "data: " . json_encode([
+                "messages" => [],
+                "count" => $count,
+            ]) . " \n\n";
+        ob_flush();
+        flush();
+
 
         // start stream
         while (true) {
@@ -60,12 +70,16 @@ class ScreenController extends AbstractController
 
             if (count($messages) > 0) {
 
-                dump("here");
                 // Messages triés par id ASC
                 $current_uc = end($messages)->id;
 
+                $count = $em->getRepository(Message::class)->count([]);
+
                 echo "id: " . $lastEventId++ . "\n";
-                echo "data: " . json_encode($messages) . " \n\n";
+                echo "data: " . json_encode([
+                    "messages" => $messages,
+                    "count" => $count,
+                ]) . " \n\n";
                 ob_flush();
                 flush();
             }

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>Sauvez Noël</title>
-        {% block stylesheets %}{% endblock %}
-        <style>
-            .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        </style>
+
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     </head>
     <body>
         {% block body %}{% endblock %}
@@ -16,3 +13,4 @@
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+

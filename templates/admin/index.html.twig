@@ -7,9 +7,11 @@
     <ul>
         {% for message in messages %}
         <li>
-            {{ message.nom }}
-            {{ message.message }}
             {{ message.date|date("m/d H:i") }}
+            -
+            {{ message.nom }}
+            -
+            {{ message.message }}
         </li>
         {% endfor %}
     </ul>
