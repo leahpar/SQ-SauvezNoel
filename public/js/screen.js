@@ -16,6 +16,17 @@ $(function() {
     }, 10000);
 
     /**
+     * Mise à jour du compteur de messages
+     */
+    function setCompteur(cpt) {
+        // Compteur honnête
+        compteur_el.text(cpt);
+
+        // Compteur menteur
+        //compteur_el.text(342 + cpt);
+    }
+
+    /**
      * SSE init
      */
 
@@ -54,7 +65,7 @@ $(function() {
             );
         });
 
-        compteur_el.text(data["count"]);
+        setCompteur(data["count"]);
     }
 
 });
