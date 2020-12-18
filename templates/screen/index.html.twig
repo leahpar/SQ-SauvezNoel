@@ -3,19 +3,21 @@
 {% block body %}
 
 <div class="example-wrapper">
-    <h1>Message</h1>
-
-    <span id="compteur">0</span>
+    <h1>
+        <!-- Compteur de messages -->
+        <span id="compteur">0</span>
+        Messages
+    </h1>
 
     <ul id="messages">
         <!-- les nouveaux messages seront ajoutés ici -->
     </ul>
 
     <!-- Template pour les messages -->
-    <template id="message_template" style="display: none">
+    <template data-type="message" style="display: none">
         <li>
-            <span>__nom__</span>
             <span>__message__</span>
+            [<span>__nom__</span>]
         </li>
     </template>
 
