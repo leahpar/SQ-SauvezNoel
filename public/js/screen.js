@@ -10,9 +10,9 @@ $(function() {
      */
 
     setInterval(function() {
-        //if (messages_ul.children().length > 5) {
+        if (messages_ul.children().length > 1) {
             messages_ul.children(":first").remove();
-        //}
+        }
     }, 10000);
 
     /**
@@ -54,7 +54,7 @@ $(function() {
             );
         });
 
-        compteur_el.text(data["count"]);
+        compteur_el.text(data["count"] + 124);
     }
 
 });

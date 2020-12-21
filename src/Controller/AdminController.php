@@ -23,4 +23,14 @@ class AdminController extends AbstractController
             'messages' => $messages,
         ]);
     }
+    /**
+     * @Route("/admin/{id}/accept", name="admin_acceptation")
+     */
+    public function accept(Message $message, EntityManagerInterface $em): Response
+    {
+        $message->accepted = time();
+        $em->flush();
+        return $this->redirectToRoute('admin');
+    }
+
 }

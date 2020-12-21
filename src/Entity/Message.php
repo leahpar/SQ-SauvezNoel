@@ -32,6 +32,11 @@ class Message
      */
     public \DateTime $date;
 
+    /**
+     * @ORM\Column(type="integer", options={"default" : 0})
+     */
+    public int $accepted = 0;
+
     public function valid(): bool
     {
         return !empty($this->nom) && !empty($this->message);

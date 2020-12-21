@@ -22,6 +22,7 @@ class MessageRepository extends ServiceEntityRepository
     public function lastMessage()
     {
         return $this->createQueryBuilder('m')
+            ->andWhere('m.accepted > 0')
             ->orderBy('m.id', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
@@ -29,12 +30,12 @@ class MessageRepository extends ServiceEntityRepository
         ;
     }
 
-    public function newMessages(int $id)
+    public function newMessages(int $time)
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.id > :val')
-            ->setParameter('val', $id)
-            ->orderBy('m.id', 'ASC')
+            ->andWhere('m.accepted > :val')
+            ->setParameter('val', $time)
+            ->orderBy('m.accepted', 'ASC')
             ->getQuery()
             ->getResult()
         ;

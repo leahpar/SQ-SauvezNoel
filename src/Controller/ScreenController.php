@@ -44,8 +44,9 @@ class ScreenController extends AbstractController
         }
 
         // Dernier message
-        $message = $em->getRepository(Message::class)->lastMessage();
-        $current_uc = floatval($_GET["lastMessageId"] ?? $message->id);
+        /** @var Message $message */
+        $message = $em->getRepository(Message::class)->lastMessage() ?? new Message();
+        $current_uc = floatval($_GET["lastMessageAccepted"] ?? $message->accepted);
 
         $count = $em->getRepository(Message::class)->count([]);
 
@@ -71,7 +72,7 @@ class ScreenController extends AbstractController
             if (count($messages) > 0) {
 
                 // Messages triés par id ASC
-                $current_uc = end($messages)->id;
+                $current_uc = end($messages)->accepted;
 
                 $count = $em->getRepository(Message::class)->count([]);
 

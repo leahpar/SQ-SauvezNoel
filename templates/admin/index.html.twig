@@ -7,6 +7,12 @@
     <ul>
         {% for message in messages %}
         <li>
+            {% if message.accepted %}
+                [OK]
+            {% else %}
+                <a href="{{ path('admin_acceptation', {id: message.id}) }}">[valider]</a>
+            {% endif %}
+
             {{ message.date|date("m/d H:i") }}
             -
             {{ message.nom }}
