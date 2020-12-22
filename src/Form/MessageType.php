@@ -17,7 +17,8 @@ class MessageType extends AbstractType
                 "required" => true,
             ])
             ->add('message', TextType::class, [
-                "required" => true,
+                "required" => false,
+                "empty_data" => "On est avec vous !",
             ])
         ;
     }
