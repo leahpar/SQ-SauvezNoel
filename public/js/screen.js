@@ -4,16 +4,22 @@ $(function() {
     let messages_ul = $("#messages");
     let compteur_el = $("#compteur");
     let message_template = $("template[data-type=message]").html();
+    let display = $("#messagesWrapper");
 
     /**
      * Suppression auto des anciens messages
      */
 
     setInterval(function() {
-        if (messages_ul.children().length > 1) {
-            messages_ul.children(":first").remove();
+        let el = messages_ul.children(":first");
+        //console.log(el);
+        el.detach();
+        display.empty();
+        display.append(el);
+        if (messages_ul.children().length < 10) {
+            messages_ul.append(el.clone());
         }
-    }, 10000);
+    }, 26000);
 
     /**
      * SSE init
@@ -24,9 +30,9 @@ $(function() {
 
         let listener = function (event) {
             if (typeof event.data !== 'undefined') {
-                console.log(event);
+                //console.log(event);
                 let data = JSON.parse(event.data);
-                console.log(data);
+                //console.log(data);
                 handleSSE(data);
             }
         };
@@ -56,11 +62,5 @@ $(function() {
 
         compteur_el.text(data["count"] + 124);
     }
-    
-    /*$("#messages li").each(function(index){
-        $(this).delay(index*20000).animate({left:"100vw"},20000);
-    });*/
-    
-    
 
 });

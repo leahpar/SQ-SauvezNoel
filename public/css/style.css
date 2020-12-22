@@ -164,7 +164,7 @@ h1 {
   align-items: center;
   color: #fff;
   font-size: 35px;
-  animation: linear marqueelike 25s;
+  animation: linear marqueelike 5s;
 }
 .screenWrapper footer .messagesWrapper .msg p {
   margin: 0px;

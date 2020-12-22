@@ -2,48 +2,46 @@
 
 {% block body %}
 
-<div class="screenWrapper">
-    <div id="compteurWrapper">
-        <!-- Compteur de messages -->
-        <span id="compteur">0</span>
-        Soutiens
-    </div>
-    
-    <footer>
-        
-        <div class="cta">
-            <div class="qrcode">
-                <!-- QR Code -->
-                {% set url = absolute_url(path('user_index')) %}
-                <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=L&chl={{ url }}" width="300px" height="300px">
+    <div class="screenWrapper">
+        <div id="compteurWrapper">
+            <!-- Compteur de messages -->
+            <span id="compteur">0</span>
+            Soutiens
+        </div>
+
+        <footer>
+
+            <div class="cta">
+                <div class="qrcode">
+                    <!-- QR Code -->
+                    {% set url = absolute_url(path('user_index')) %}
+                    <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=L&chl={{ url }}"
+                         crossorigin="anonymous"
+                         decoding="async"
+                         referrerpolicy="origin-when-cross-origin"
+                         width="300px"
+                         height="300px">
+                </div>
+                <p>Envoyez vos messages de soutien sur <strong>sosnoel.fr</strong></p>
             </div>
-            <p>Envoyez vos messages de soutien sur <strong>sosnoel.fr</strong></p>
-        </div>
-        
-        <div class="messagesWrapper">
-            <div class="msg"><p><strong>C'est vraiment un Super</strong>, Mathieu L</p></div>
-            
-            <ul id="messages">
-                <!-- les nouveaux messages seront ajoutés ici -->
-            </ul>
-            
-        </div>
-        
-    </footer>
 
-    
+            <div id="messagesWrapper" class="messagesWrapper">
+                <!-- Message courant -->
+            </div>
 
-    
+            <div id="messages" style="display: none">
+                <!-- Messages en stock -->
+            </div>
 
-    <!-- Template pour les messages -->
-    <template data-type="message" style="display: none">
-        <li>
-            <span>__message__</span>
-            [<span>__nom__</span>]
-        </li>
-    </template>
+        </footer>
 
-</div>
+
+        <!-- Template pour les messages -->
+        <template data-type="message" style="display: none">
+            <div class="msg"><p><strong>__message__</strong>, __nom__</p></div>
+        </template>
+
+    </div>
 {% endblock %}
 
 
