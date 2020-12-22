@@ -56,5 +56,11 @@ $(function() {
 
         compteur_el.text(data["count"] + 124);
     }
+    
+    /*$("#messages li").each(function(index){
+        $(this).delay(index*20000).animate({left:"100vw"},20000);
+    });*/
+    
+    
 
 });

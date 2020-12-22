@@ -2,20 +2,38 @@
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>
+<div class="screenWrapper">
+    <div id="compteurWrapper">
         <!-- Compteur de messages -->
         <span id="compteur">0</span>
-        Messages
-    </h1>
+        Soutiens
+    </div>
+    
+    <footer>
+        
+        <div class="cta">
+            <div class="qrcode">
+                <!-- QR Code -->
+                {% set url = absolute_url(path('user_index')) %}
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=L&chl={{ url }}" width="300px" height="300px">
+            </div>
+            <p>Envoyez vos messages de soutien sur <strong>sosnoel.fr</strong></p>
+        </div>
+        
+        <div class="messagesWrapper">
+            <div class="msg"><p><strong>C'est vraiment un Super</strong>, Mathieu L</p></div>
+            
+            <ul id="messages">
+                <!-- les nouveaux messages seront ajoutés ici -->
+            </ul>
+            
+        </div>
+        
+    </footer>
 
-    <!-- QR Code -->
-    {% set url = absolute_url(path('user_index')) %}
-    <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=L&chl={{ url }}" width="300px" height="300px">
+    
 
-    <ul id="messages">
-        <!-- les nouveaux messages seront ajoutés ici -->
-    </ul>
+    
 
     <!-- Template pour les messages -->
     <template data-type="message" style="display: none">
@@ -32,3 +50,4 @@
 {% block javascripts %}
     <script src="{{ asset('/js/screen.js') }}"></script>
 {% endblock %}
+

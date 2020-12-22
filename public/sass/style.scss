@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap');
+
+body{
+	margin: 0px;
+	padding: 0px;
+	
+	min-height: 100vh;
+}
+.userWrapper{
+	box-sizing: border-box;
+	
+	padding: 30px;
+	
+	background: red;
+	border-bottom: 5px dotted #fff;
+	border-top: 5px dotted #fff;
+	
+	text-align: center;
+	color: #fff;
+	font-family: 'Rubik', sans-serif;
+}
+
+h1{
+	margin: 0px;
+}
+
+.sapin{
+	height: 300px;
+	
+	margin: 0px;
+	padding: 0px;
+	
+	background: #d90000 url(../img/bg_header.jpg) no-repeat center center;
+}
+
+.formWrapper{
+	padding: 30px;
+	background: #d90000;
+	
+	color: #fff;
+	font-family: 'Rubik', sans-serif;
+	
+	label{
+		display: block;
+		margin-bottom: 5px;
+	}
+	
+	input, button{
+		box-sizing: border-box;
+		
+		width: 100%;
+		
+		padding: 10px 15px;
+		background: #fff;
+		border: none;
+		border-radius: 8px;
+		
+		font-size: 16px;
+	}
+	button{
+		padding: 15px;
+		
+		background: red;
+		box-shadow: 0px 10px 10px rgba(0,0,0,.2);
+		border: 2px solid #fff;
+		
+		color: #fff;
+		font-weight: bold;
+	}
+}
+.signature{
+	background: red;
+	text-align: center;
+}
+
+
+
+
+
+
+// ----------------------------- SCREEN ----------------------------
+.screenWrapper{
+	position: relative;
+	
+	box-sizing: border-box;
+	min-height: inherit;
+	background: #24ff00;
+	
+	font-family: 'Rubik';
+	
+	#compteurWrapper{
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		
+		text-align: center;
+		font-weight: 600;
+		text-transform: uppercase;
+		color: #fff;
+		font-size: 35px;
+		text-shadow: 0px 1px 2px rgba(0,0,0,.6);
+		
+		#compteur{
+			display: block;
+			
+			padding: 5px 10px;
+			margin-bottom: 5px;
+			
+			background: #fff;
+			border: 1px solid #eee;
+			border-radius: 10px;
+			box-shadow: 0px 5px 5px rgba(00,0,0,.5);
+			
+			text-align: center;
+			font-size: 60px;
+			font-weight: 800;
+			letter-spacing: 1px;
+			color: red;
+			text-shadow: none;
+		}
+	}
+	
+	footer{
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		
+		width: 100vw;
+		
+		.cta{
+			position: relative;
+			
+			padding: 30px 20px;
+			padding-left: 220px;
+			
+			background: #fff;
+			
+			font-size: 35px;
+			color: red;
+			
+			.qrcode{
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				
+				
+				
+				img{
+					width: 200px;
+					height: 200px;
+					border-radius: 0px 30px 0px 0px;
+				}
+			}
+			p{
+				margin: 0px;
+			}
+		}
+		.messagesWrapper{
+			position: relative;
+			background: red;
+			
+			width: 100vw;
+			height: 100px;
+			
+			overflow: hidden;
+			
+			.msg{
+				box-sizing: border-box;
+				position: absolute;
+				top: 0px;
+				left: 100vw;
+				
+				width: 100vw;
+				height: 100px;
+				
+				padding: 0px 40px;
+				
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+				
+				color: #fff;
+				font-size: 35px;
+				
+				animation: linear marqueelike 25s;
+				
+				p{
+					margin: 0px;
+					padding: 0px;
+				}
+			}
+			
+			/*ul{
+				position: relative;
+				
+				display: flex;
+				
+				margin: 0px;
+				padding: 0px;
+				
+				width: inherit;
+				height: inherit;
+				
+				animation: linear marqueelike 20s infinite;
+				margin-left: -100%;
+				
+				li{					
+					padding: 30px 20px;
+					
+					list-style: none;
+					
+					color: #fff;
+					font-size: 35px;
+					text-align: center;
+				}
+			}*/
+		}
+	}
+}
+
+@-webkit-keyframes marqueelike {
+	 0%, 100% {left:100vw;}
+	 99.99% {left:-100vw;}
+ }

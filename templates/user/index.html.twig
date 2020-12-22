@@ -2,28 +2,41 @@
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>Sauvez Noël !</h1>
+<figure class="sapin"></figure>
 
+<div class="userWrapper">
+    
+    <h1>SOS Noël !</h1>
+    
+    <p><strong>Après une année 2020 catastrophique, le secteur de l'événementiel est au bord du gouffre.</strong></p>
+    <p>Puisque nous n'arrivons pas à nous faire entendre, nous avons décidé de nous adresser cette fois en plus haut lieu : <strong>au Père Noël !</strong></p>
+    <p>Pour appuyer notre démarche, nous exprimer votre soutient, <strong>nous vous proposons de vous joindre à nous en signant cette e-petition.</strong></p>
+
+</div> 
+
+<div class="formWrapper">
     <form method="post">
 
-        <label>Nom prénom (sera affiché à l'écran)</label>
-        <br>
-        <input type="text" name="message[nom]" required>
-        <br>
+        <p>
+            <label>Nom prénom (sera affiché à l'écran)</label>
+            <input type="text" name="message[nom]" required placeholder="Marcel D">
+        </p>
 
-        <label>Lettre au Père Noël</label>
-        <br>
-        <input type="text" name="message[message]" required>
-        <br>
+        <p>
+            <label>Message de soutien</label>
+            <input type="text" name="message[message]" placeholder="On est avec vous !">
+        </p>
 
         <!--don't touch this -->
         {{ form_row(form._token) }}
 
-        <button>Envoyer ma lettre</button>
+        <p><button>Envoyer mon soutien</button></p>
 
     </form>
+</div>
 
+<div class="signature">
+    <a href="https://www.facebook.com/COLLECTIFEVENEMENTIELNORMAND/" target="_blank"><img src="{{ asset('img/signature.jpg') }}"></a>
 </div>
 
 {% endblock %}
