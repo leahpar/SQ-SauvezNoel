@@ -14,7 +14,7 @@ security:
 
     firewalls:
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            pattern: ^/(_(wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
@@ -34,3 +34,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/_profiler, roles: ROLE_ADMIN }
