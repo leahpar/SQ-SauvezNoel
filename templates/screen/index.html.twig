@@ -11,7 +11,12 @@
 
     <!-- QR Code -->
     {% set url = absolute_url(path('user_index')) %}
-    <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=L&chl={{ url }}" width="300px" height="300px">
+    <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=L&chl={{ url }}"
+         crossorigin="anonymous"
+         decoding="async"
+         referrerpolicy="origin-when-cross-origin"
+         width="300px"
+         height="300px">
 
     <ul id="messages">
         <!-- les nouveaux messages seront ajoutés ici -->
